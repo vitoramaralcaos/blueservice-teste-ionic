@@ -1,0 +1,70 @@
+<ion-header translucent>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-back-button defaultHref="/"></ion-back-button>
+              </ion-buttons>
+              <ion-title>Adicionar Nota</ion-title>
+            </ion-toolbar>
+          </ion-header>
+
+<ion-content fullscreen>
+
+	<form>
+		
+		<ion-list lines="full" class="ion-no-margin ion-no-padding">
+			<ion-item>
+            	<ion-label position="stacked">Título <ion-text color="danger">*</ion-text></ion-label>
+				<ion-input required disabled="{{input_disabled}}" type="text" name="titulo" [(ngModel)]="conteudoNota.titulo" [ngModelOptions]="{standalone: true}" placeholder="Título da Nota"></ion-input>
+			</ion-item>
+	        <ion-item>
+	            <ion-label position="stacked">Descrição <ion-text color="danger">*</ion-text></ion-label>
+	            <ion-input required disabled="{{input_disabled}}" type="text" name="descricao" [(ngModel)]="conteudoNota.descricao" [ngModelOptions]="{standalone: true}" placeholder="Descrição da Nota"></ion-input>
+	        </ion-item>
+	        <ion-item>
+	            <ion-label position="stacked">Localização</ion-label>
+	            <ion-input disabled="true" type="text" name="localizacao" [(ngModel)]="conteudoNota.localizacao" [ngModelOptions]="{standalone: true}" placeholder="Clique no botão: Obter Localização"></ion-input>
+	        </ion-item>
+		</ion-list>
+		<ion-list>
+			<ion-item>
+	        	<ion-label position="stacked">Imagem</ion-label><br />
+	        	<img [src]="imagem" *ngIf="imagem" /><br />
+	        </ion-item>
+		</ion-list>
+			
+		<ion-grid class="{{btn_display}}">
+		  <ion-row class="ion-align-items-center ion-justify-content-center">
+		    <ion-col size="auto">
+		      <div>
+		        <ion-icon name="archive" (click)="showImagem()"></ion-icon>
+		      </div>
+		    </ion-col>
+		    <ion-col size="auto">
+		      <div>
+		        <button ion-button class="btn" (click)="showImagem()">
+					Adicionar <br /> Imagem
+				</button>
+		      </div>
+		    </ion-col>
+		    <ion-col size="auto">
+		      <div>
+		        <ion-icon name="location" (click)="showLocalizacao()"></ion-icon>
+		      </div>
+		    </ion-col>
+		    <ion-col size="auto">
+		      <div>
+		        <button ion-button class="btn" (click)="showLocalizacao()">
+					Obter Localização
+				</button>
+		      </div>
+		    </ion-col>
+		  </ion-row>
+		</ion-grid>
+			
+		<div class="ion-padding {{btn_display}}">
+          <ion-button expand="block" type="button" (click)="SalvarNota()" class="ion-no-margin">Criar Nota</ion-button>
+        </div>
+		
+	</form>
+
+</ion-content>

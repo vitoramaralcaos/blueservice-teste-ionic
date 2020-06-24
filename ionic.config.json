@@ -1,5 +1,7 @@
 {
   "name": "BlueServiceNotas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

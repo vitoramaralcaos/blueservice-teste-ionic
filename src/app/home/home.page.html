@@ -1,20 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header translucent>
+            <ion-toolbar>
+	        <ion-buttons slot="primary">
+	          <ion-button (click)="AdicionarNota()">
+	            <ion-icon slot="icon-only" ios="add-outline" md="add-outline"></ion-icon>
+	          </ion-button>
+	        </ion-buttons>
+              <ion-title>Notas</ion-title>
+            </ion-toolbar>
+          </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+	  <ion-list>
+        <ion-item *ngFor="let item of items">
+          <ion-label (click)="ExibirNota(item.id_nota)">
+            <h2> {{ item.titulo_nota }}</h2>
+            <p> {{ item.data_txt }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
   </div>
 </ion-content>

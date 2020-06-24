@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-back-button defaultHref="/"></ion-back-button>
+              </ion-buttons>
+              <ion-title>Detalhes da Nota</ion-title>
+            </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+	<ion-list class="ion-padding">
+	    <ion-item>
+	      <ion-label text-wrap>
+            <h2>Título1:</h2>
+            <p *ngIf="nota.titulo_nota"> {{ nota.titulo_nota }}</p>
+          </ion-label>
+	    </ion-item>
+        <ion-item>
+         <ion-label text-wrap>
+            <h2>Descrição:</h2>
+            <p *ngIf="nota.descricao_nota"> {{ nota.descricao_nota }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+         <ion-label text-wrap>
+            <h2>Localização:</h2>
+            <p *ngIf="nota.localizacao_nota"> {{ nota.localizacao_nota }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+         <ion-label>
+            <p><img [src]="notaImageStyle"></p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+         <ion-label>
+            <p *ngIf="nota.data_txt">Criação: {{ nota.data_txt }}</p>
+          </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
